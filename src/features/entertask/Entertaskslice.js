@@ -7,6 +7,7 @@ const TaskSlide = createSlice({
     addTask(state, action) {
       state.push({ id: Math.random(), completed: false, name: action.payload });
     },
+
     checkboxChange(state, action) {
       const chek = state.find((task) => task.id === action.payload);
       if (chek) {

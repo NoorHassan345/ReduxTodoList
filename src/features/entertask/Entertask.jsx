@@ -8,14 +8,21 @@ function Entertask() {
   const [name, setname] = useState("");
   const handleAddTask = (event) => {
     event.preventDefault();
-    dispatch(addTask(name));
+    if (!name.trim()) {
+      return;
+    } else {
+      dispatch(addTask(name));
+    }
+
+    setname("");
   };
+
   return (
     <>
       <form onSubmit={handleAddTask}>
         <input
           type="text"
-          onChange={(event) => setname(event.target.value)}
+          onChange={(e) => setname(e.target.value)}
           className=" form-control mt-3 border-primary "
           placeholder="Enter Task in  To Do List"
           value={name}
